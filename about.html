@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Weather - WeatherNow</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="nav-left">
+                <div class="logo">
+                    <i class="fas fa-cloud-sun"></i>
+                    <span>WeatherNow</span>
+                </div>
+            </div>
+            <div class="nav-center">
+                <div class="nav-menu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link active">About</a>
+                    <a href="analytics.html" class="nav-link">Analytics</a>
+                </div>
+            </div>
+             <div class="nav-right">
+                <div class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon" id="themeIcon"></i>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- About Section -->
+            <section id="about" class="section">
+                <div class="about-container">
+                    <h2 class="section-title">Understanding Weather</h2>
+                    
+                    <!-- Weather Topics Grid -->
+                    <div class="about-grid">
+                        <!-- What is Weather -->
+                        <div class="about-card">
+                            <div class="about-icon">
+                                <i class="fas fa-cloud-sun"></i>
+                            </div>
+                            <h3>What is Weather</h3>
+                            <p>Weather refers to the atmospheric conditions in a specific place at a specific time. It includes temperature, humidity, precipitation, wind speed, and visibility. Weather changes constantly and affects our daily lives in numerous ways, from what we wear to how we plan our activities.</p>
+                        </div>
+                        
+                        <!-- Importance of Weather -->
+                        <div class="about-card">
+                            <div class="about-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <h3>Importance of Weather</h3>
+                            <p>Weather plays a crucial role in our daily lives. It influences agriculture by determining growing seasons and crop yields, affects travel plans and transportation safety, impacts our health and comfort, and shapes our lifestyle choices. Understanding weather helps us make informed decisions and stay prepared for various conditions.</p>
+                        </div>
+                        
+                        <!-- Elements of Weather -->
+                        <div class="about-card">
+                            <div class="about-icon">
+                                <i class="fas fa-thermometer-half"></i>
+                            </div>
+                            <h3>Elements of Weather</h3>
+                            <div class="elements-grid">
+                                <div class="element-item">
+                                    <i class="fas fa-temperature-high"></i>
+                                    <span>Temperature</span>
+                                </div>
+                                <div class="element-item">
+                                    <i class="fas fa-tint"></i>
+                                    <span>Humidity</span>
+                                </div>
+                                <div class="element-item">
+                                    <i class="fas fa-wind"></i>
+                                    <span>Wind</span>
+                                </div>
+                                <div class="element-item">
+                                    <i class="fas fa-compress-arrows-alt"></i>
+                                    <span>Pressure</span>
+                                </div>
+                                <div class="element-item">
+                                    <i class="fas fa-cloud-rain"></i>
+                                    <span>Precipitation</span>
+                                </div>
+                            </div>
+                            <p>These five elements work together to create the weather conditions we experience. Temperature measures heat, humidity indicates moisture in the air, wind moves air masses, pressure systems drive weather patterns, and precipitation brings rain, snow, or other forms of water from the atmosphere.</p>
+                        </div>
+                        
+                        <!-- Types of Weather Conditions -->
+                        <div class="about-card">
+                            <div class="about-icon">
+                                <i class="fas fa-sun"></i>
+                            </div>
+                            <h3>Types of Weather Conditions</h3>
+                            <div class="weather-types">
+                                <div class="weather-type">
+                                    <i class="fas fa-sun"></i>
+                                    <div class="weather-info">
+                                        <h4>Sunny</h4>
+                                        <p>Clear skies with abundant sunshine and minimal cloud cover</p>
+                                    </div>
+                                </div>
+                                <div class="weather-type">
+                                    <i class="fas fa-cloud-rain"></i>
+                                    <div class="weather-info">
+                                        <h4>Rainy</h4>
+                                        <p>Precipitation falling from clouds in the form of water droplets</p>
+                                    </div>
+                                </div>
+                                <div class="weather-type">
+                                    <i class="fas fa-cloud"></i>
+                                    <div class="weather-info">
+                                        <h4>Cloudy</h4>
+                                        <p>Sky covered with clouds that block or filter sunlight</p>
+                                    </div>
+                                </div>
+                                <div class="weather-type">
+                                    <i class="fas fa-bolt"></i>
+                                    <div class="weather-info">
+                                        <h4>Stormy</h4>
+                                        <p>Severe weather with strong winds, heavy rain, and lightning</p>
+                                    </div>
+                                </div>
+                                <div class="weather-type">
+                                    <i class="fas fa-snowflake"></i>
+                                    <div class="weather-info">
+                                        <h4>Snowy</h4>
+                                        <p>Precipitation in the form of ice crystals falling from clouds</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Effects of Weather on Daily Life -->
+                        <div class="about-card">
+                            <div class="about-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3>Effects of Weather on Daily Life</h3>
+                            <div class="effects-grid">
+                                <div class="effect-item">
+                                    <i class="fas fa-tshirt"></i>
+                                    <h4>Clothing</h4>
+                                    <p>Weather determines what we wear - warm clothes for cold, light clothes for heat, rain gear for wet conditions</p>
+                                </div>
+                                <div class="effect-item">
+                                    <i class="fas fa-car"></i>
+                                    <h4>Transportation</h4>
+                                    <p>Weather affects travel - snow delays flights, rain causes traffic, fog reduces visibility</p>
+                                </div>
+                                <div class="effect-item">
+                                    <i class="fas fa-utensils"></i>
+                                    <h4>Food Production</h4>
+                                    <p>Weather influences farming - drought affects crops, rain helps growth, frost can damage plants</p>
+                                </div>
+                                <div class="effect-item">
+                                    <i class="fas fa-home"></i>
+                                    <h4>Lifestyle</h4>
+                                    <p>Weather shapes activities - outdoor sports in good weather, indoor activities during storms</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

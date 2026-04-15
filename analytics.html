@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics - WeatherNow</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="nav-left">
+                <div class="logo">
+                    <i class="fas fa-cloud-sun"></i>
+                    <span>WeatherNow</span>
+                </div>
+            </div>
+            <div class="nav-center">
+                <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="cityInput" class="search-input" placeholder="Search city..." value="London">
+                </div>
+                <div class="nav-menu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="analytics.html" class="nav-link active">Analytics</a>
+                </div>
+            </div>
+            <div class="nav-right">
+                <div class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon" id="themeIcon"></i>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Analytics Section -->
+            <section id="analytics" class="section">
+                <div class="analytics-container">
+                    <h2 class="section-title">Weather Analytics</h2>
+                    
+                    <div class="analytics-controls">
+                        <div class="control-group">
+                            <label for="dataType">Select Data Type:</label>
+                            <select id="dataType" class="data-select">
+                                <option value="temperature">Temperature</option>
+                                <option value="humidity">Humidity</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="analytics-grid">
+                        <div class="chart-container">
+                            <h3 id="chartTitle">Temperature Trend</h3>
+                            <canvas id="analyticsChart"></canvas>
+                        </div>
+                        
+                        <div class="stats-container">
+                            <h3>Statistics</h3>
+                            <div class="stats-grid">
+                                <div class="stat-card">
+                                    <div class="stat-label">Average</div>
+                                    <div class="stat-value" id="avgValue">--</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-label">Maximum</div>
+                                    <div class="stat-value" id="maxValue">--</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-label">Minimum</div>
+                                    <div class="stat-value" id="minValue">--</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-label">Trend</div>
+                                    <div class="stat-value" id="trendValue">--</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="analytics.js"></script>
+</body>
+</html>

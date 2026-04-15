@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherNow - Modern Weather Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="nav-left">
+                <div class="logo">
+                    <i class="fas fa-cloud-sun"></i>
+                    <span>WeatherNow</span>
+                </div>
+            </div>
+            <div class="nav-center">
+                <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="cityInput" class="search-input" placeholder="Search city..." value="London">
+                    <button id="analyticsBtn" class="analytics-btn">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Analytics</span>
+                    </button>
+                </div>
+                <div class="nav-menu">
+                    <a href="index.html" class="nav-link active">Home</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="analytics.html" class="nav-link">Analytics</a>
+                </div>
+            </div>
+            <div class="nav-right">
+                <div class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon" id="themeIcon"></i>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Loading State -->
+        <div class="loading-overlay" id="loadingOverlay">
+            <div class="loading-spinner">
+                <i class="fas fa-spinner fa-spin"></i>
+                <span>Loading weather data...</span>
+            </div>
+        </div>
+
+        <!-- Error Message -->
+        <div class="error-message" id="errorMessage">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span id="errorText">City not found. Please try again.</span>
+        </div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Home Section -->
+            <section id="home" class="section">
+                <!-- Current Weather Hero -->
+                <div class="weather-hero">
+                    <div class="weather-card">
+                        <div class="weather-header">
+                            <div class="location-info">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span id="cityName">London</span>
+                            </div>
+                            <div class="datetime" id="currentDateTime">Monday, March 28, 2026</div>
+                        </div>
+                        
+                        <div class="weather-main">
+                            <div class="temperature-display">
+                                <span id="currentTemp">18</span>
+                                <span class="temp-unit" id="tempUnit">°C</span>
+                            </div>
+                            <div class="temp-toggle">
+                                <span class="toggle-label">F</span>
+                                <label class="switch">
+                                    <input type="checkbox" id="tempToggle">
+                                    <span class="slider"></span>
+                                </label>
+                                <span class="toggle-label">C</span>
+                            </div>
+                        </div>
+                        
+                        <div class="weather-details">
+                            <div class="weather-condition">
+                                <i class="fas fa-cloud-sun" id="weatherIcon"></i>
+                                <span id="weatherDescription">Partly Cloudy</span>
+                            </div>
+                            <div class="feels-like">
+                                <span>Feels like</span>
+                                <span id="feelsLike">16</span>°
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Highlights Grid -->
+                <div class="highlights-section">
+                    <h2 class="section-title">Today's Highlights</h2>
+                    <div class="highlights-grid">
+                        <div class="highlight-card">
+                            <div class="highlight-icon">
+                                <i class="fas fa-tint"></i>
+                            </div>
+                            <div class="highlight-info">
+                                <div class="highlight-label">Humidity</div>
+                                <div class="highlight-value" id="humidity">65%</div>
+                            </div>
+                        </div>
+                        
+                        <div class="highlight-card">
+                            <div class="highlight-icon">
+                                <i class="fas fa-wind"></i>
+                            </div>
+                            <div class="highlight-info">
+                                <div class="highlight-label">Wind Speed</div>
+                                <div class="highlight-value" id="windSpeed">12 km/h</div>
+                            </div>
+                        </div>
+                        
+                        <div class="highlight-card">
+                            <div class="highlight-icon">
+                                <i class="fas fa-sun"></i>
+                            </div>
+                            <div class="highlight-info">
+                                <div class="highlight-label">UV Index</div>
+                                <div class="highlight-value" id="uvIndex">3</div>
+                            </div>
+                        </div>
+                        
+                        <div class="highlight-card">
+                            <div class="highlight-icon">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <div class="highlight-info">
+                                <div class="highlight-label">Visibility</div>
+                                <div class="highlight-value" id="visibility">10 km</div>
+                            </div>
+                        </div>
+                        
+                        <div class="highlight-card">
+                            <div class="highlight-icon">
+                                <i class="fas fa-compress-arrows-alt"></i>
+                            </div>
+                            <div class="highlight-info">
+                                <div class="highlight-label">Pressure</div>
+                                <div class="highlight-value" id="pressure">1013 mb</div>
+                            </div>
+                        </div>
+                        
+                        <div class="highlight-card">
+                            <div class="highlight-icon">
+                                <i class="fas fa-sun"></i>
+                            </div>
+                            <div class="highlight-info">
+                                <div class="highlight-label">Sunrise</div>
+                                <div class="highlight-value" id="sunrise">6:30 AM</div>
+                            </div>
+                        </div>
+                        
+                        <div class="highlight-card">
+                            <div class="highlight-icon">
+                                <i class="fas fa-moon"></i>
+                            </div>
+                            <div class="highlight-info">
+                                <div class="highlight-label">Sunset</div>
+                                <div class="highlight-value" id="sunset">7:15 PM</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hourly Forecast -->
+                <div class="hourly-section">
+                    <h2 class="section-title">Hourly Forecast</h2>
+                    <div class="hourly-container" id="hourlyForecast">
+                        <!-- Hourly items will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Weekly Forecast -->
+                <div class="weekly-section">
+                    <h2 class="section-title">7-Day Forecast</h2>
+                    <div class="weekly-grid" id="weeklyForecast">
+                        <!-- Weekly items will be populated by JavaScript -->
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
