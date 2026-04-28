@@ -3,22 +3,28 @@ pipeline {
 
     stages {
 
-        stage('Build') {
+        stage('Clone Repository') {
             steps {
-                echo 'No build required for static HTML website'
+                git branch: 'main', url: 'https://github.com/NANTHITHA-P/weather-devops.git'
             }
         }
 
-        stage('Test') {
+        stage('Build Docker Image') {
             steps {
-                echo 'No tests defined for static website'
+                sh 'docker build -t mysite .'
             }
         }
 
-        stage('Deploy Website') {
+        stage('Stop Old Container') {
             steps {
-                echo 'Starting local server...'
-                bat 'python -m http.server 8000'
+                sh 'docker stop mycontainer || true'
+                sh 'docker rm mycontainer || true'
+            }
+        }
+
+        stage('Run New Container') {
+            steps {
+                sh 'docker run -d -p 8080:80 --name mycontainer mysite'
             }
         }
     }
